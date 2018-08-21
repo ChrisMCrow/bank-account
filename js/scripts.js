@@ -1,6 +1,7 @@
 //Back-end
-function Account(name, initialDeposit, id) {
-  this.name = name;
+function Account(firstName, lastName, initialDeposit, id) {
+  this.firstName = firstName;
+  this.lastName = lastName;
   this.balance = parseFloat(initialDeposit);
   this.id = id;
 }
@@ -57,10 +58,11 @@ $(document).ready(function() {
 
     $("#currentBalance").text("");
 
-    var nameInput = $("#name").val();
+    var firstNameInput = $("#first-name").val();
+    var lastNameInput = $("#last-name").val();
     var initialDepositInput = parseFloat($("#initial-deposit").val()).toFixed(2);
 
-    bankAccount = new Account(nameInput, initialDepositInput, makeId);
+    bankAccount = new Account(firstNameInput, lastNameInput, initialDepositInput, makeId);
     alert("Your account number is " + bankAccount.id);
     accountArray.push(bankAccount);
     $("#currentBalance").text("$" + bankAccount.balance);
