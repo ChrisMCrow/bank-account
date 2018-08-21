@@ -11,7 +11,10 @@ function serviceAction(array, accountNumber, depositAmount, withdrawAmount) {
   //Add value to blank fields
   var deposit = parseFloat(depositAmount);
   var withdraw = parseFloat(withdrawAmount);
-  if (!deposit) {
+  if (!deposit && !withdraw) {
+    deposit = 0;
+    withdraw = 0;
+  } else if (!deposit) {
     deposit = 0;
   } else if (!withdraw) {
     withdraw = 0;
@@ -36,7 +39,8 @@ function serviceAction(array, accountNumber, depositAmount, withdrawAmount) {
 
 //clear register inputs
 function clearRegisterFields() {
-  $("#name").val("");
+  $("#first-name").val("");
+  $("#last-name").val("");
   $("#initial-deposit").val("");
 }
 
